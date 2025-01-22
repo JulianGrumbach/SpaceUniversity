@@ -1,0 +1,12 @@
+Bootstrap: docker
+From: ubuntu:20.04
+
+%labels
+  AUTHOR Sebastian Spreizer <spreizer@web.de>
+
+%post
+  apt update && apt install -y git curl
+  curl -sL https://deb.nodesource.com/setup_15.x | bash -
+  apt-get install -y nodejs
+  npm install -g npm yarn
+  yarn global add @vue/cli@3
