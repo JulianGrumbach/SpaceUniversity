@@ -1,1 +1,1 @@
-declare module 'vue-flag-icon'
+declare module 'vue-flag-icon';

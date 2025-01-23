@@ -7,9 +7,8 @@ import vuetify from '@/plugins/vuetify';
 
 import VueCompositionAPI from '@vue/composition-api';
 //import VueZoomer from 'vue-zoomer';
-//import FlagIcon from 'vue-flag-icon';
+import FlagIcon from 'vue-flag-icon';
 var VueZoomer = require('vue-zoomer');
-var FlagIcon = require('vue-flag-icon');
 Vue.use(VueCompositionAPI);
 Vue.use(VueZoomer);
 Vue.use(FlagIcon);
