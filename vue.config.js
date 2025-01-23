@@ -5,6 +5,7 @@ module.exports = {
   transpileDependencies: [
     // "vuetify"
   ],
+  publicPath: process.env.NODE_ENV === "production" ? "/SpaceUniversity/" : "/",
   // https://stackoverflow.com/questions/55258355/vue-clis-type-checking-service-ignores-memory-limits#55810460
   // and https://cli.vuejs.org/config/#parallel
   configureWebpack: config => {
