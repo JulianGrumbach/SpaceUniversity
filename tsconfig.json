@@ -13,12 +13,14 @@
     "baseUrl": ".",
     "typeRoots": [
       "./node_modules/@types",
-      "./node_modules/vuetify/types"
+      "./node_modules/vuetify/types",
+      "./types"
     ],
     "types": [
       "node",
       "webpack-env",
-      "vuetify"
+      "vuetify",
+      "vue-flag-icon"
     ],
     "paths": {
       "@/*": [
