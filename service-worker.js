@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/SpaceUniversity/precache-manifest.1babc9a4d5a70f609fa065d0cb76721f.js"
+  "/SpaceUniversity/precache-manifest.4c8f362f82394306353ad7bf0a9cea1e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-pochta"});
