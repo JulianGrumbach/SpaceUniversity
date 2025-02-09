@@ -1,5 +1,5 @@
 export default {
-  aboutVuePochta: {
+  aboutVuePochta: {   //TODO: remove later?
     name: 'Über Vue Pochta',
     description: `Vue Pochta ist ein Studentenprojekt, um das Programmieren mit dem Frontend
         Framework im Webbrowser zu lernen. Es verwendet eine Analogie zu Porta der Universität
@@ -20,6 +20,9 @@ export default {
         name: 'Kurse',
         myCourses: 'Meine Kurse',
         allCourses: 'Alle Kurse',
+    },
+    timetable: { // Add this section
+      name: 'Stundenplan',
     },
   },
   home: {

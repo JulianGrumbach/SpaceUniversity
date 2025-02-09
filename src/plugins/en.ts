@@ -18,6 +18,11 @@ export default {
     name: 'Study',
     courses: {
       name: 'Courses',
+      myCourses: 'My Courses',
+      allCourses: 'All Courses',
+    },
+    timetable: {
+      name: 'Timetable',
     },
   },
   home: {

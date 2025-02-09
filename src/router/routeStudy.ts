@@ -13,6 +13,20 @@ const routeStudy = [
       ],
     },
   },
+  {
+    path: 'timetable',
+    name: 'timetable',
+    components: {
+      default: () => import('@/components/study/Timetable.vue'),
+    },
+    meta: {
+      breadcrumbs: [
+        { text: 'Home', to: '/' },
+        { text: 'Study', to: '/study' },
+        { text: 'Timetable', to: '/study/timetable' },
+      ],
+    },
+  }
 ];
 
 export default routeStudy;

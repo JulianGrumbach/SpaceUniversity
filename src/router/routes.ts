@@ -46,6 +46,11 @@ const routes = {
       to: '/study/courses',
       icon: 'fa-book-open',
     },
+    {
+      title: '$vuetify.study.timetable.name', // Add this section
+      to: '/study/timetable',
+      icon: 'fa-calendar-alt',
+    },
   ],
 };
 
