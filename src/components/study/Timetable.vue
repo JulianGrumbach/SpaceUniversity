@@ -125,6 +125,7 @@
                         </select>
                     </div>
                     <button class="confirm-button" @click="saveColor">Farbe speichern</button>
+                    <button class="delete-button" @click="deleteAppointment">Löschen</button>
                 </div>
                 <div v-else>
                     <input class="appointment-input" v-model="appointment" @keyup.enter="saveAppointment" placeholder="Termin eintragen" />
@@ -140,6 +141,7 @@
                         </select>
                     </div>
                     <button class="confirm-button" @click="saveAppointment">Bestätigen</button>
+                    <button class="delete-button" @click="deleteAppointment">Löschen</button>
                 </div>
             </div>
         </div>
@@ -201,6 +203,12 @@ export default {
         saveColor() {
             if (this.currentSlot.time && this.currentSlot.day) {
                 this.$set(this.timetable[this.currentSlot.time][this.currentSlot.day], 'color', this.selectedColor);
+            }
+            this.closePopup();
+        },
+        deleteAppointment() {
+            if (this.currentSlot.time && this.currentSlot.day) {
+                this.$set(this.timetable[this.currentSlot.time], this.currentSlot.day, { course: '', color: '#ffffff' });
             }
             this.closePopup();
         }
@@ -291,7 +299,8 @@ td:hover {
     cursor: pointer;
     background-color: white;
     transition: background-color 0.2s;
-    margin-top: 20px; /* Added margin-top to place the button further down */
+    margin-top: 20px; /* Adjusted margin-top */
+    margin-right: 10px; /* Added margin-right for spacing */
 }
 
 .confirm-button:hover {
@@ -306,5 +315,18 @@ td:hover {
 .color-picker label {
     display: block;
     margin-bottom: 5px;
+}
+
+.delete-button {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s;
+    margin-top: 20px; /* Adjusted margin-top to match confirm-button */
+}
+
+.delete-button:hover {
+    background-color: #f2f2f2;
 }
 </style>
