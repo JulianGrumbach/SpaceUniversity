@@ -52,4 +52,7 @@ export default {
   eventDates: {
     mySchedule: 'My Schedule',
   },
+  aboutFaq: {
+    name: 'FAQ',
+  },
 };

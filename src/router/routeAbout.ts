@@ -41,6 +41,20 @@ const routeAbout = [
       ],
     },
   },
+  {
+    path: 'faq',
+    name: 'aboutFaq',
+    components: {
+      default: () => import('@/components/about/Faq.vue'),
+    },
+    meta: {
+      breadcrumbs: [
+        { text: 'Home', to: '/' },
+        { text: 'About', to: '/about' },
+        { text: 'FAQ', to: '/about/faq' },
+      ],
+    },
+  },
 ];
 
 export default routeAbout;

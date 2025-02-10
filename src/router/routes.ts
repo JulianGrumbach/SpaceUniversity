@@ -15,6 +15,11 @@ const routes = {
       to: '/about/vuetify',
       icon: 'fab fa-vine',
     },
+    {
+      title: '$vuetify.aboutFaq.name',
+      to: '/about/faq',
+      icon: 'fa-question-circle',
+    },
   ],
   campus: [
     {
