@@ -45,7 +45,7 @@ const routes: Routes = {
       to: '/campus/map',
       icon: 'fa-solid fa-map',
     },
-  ],
+  ],/*
   playground: [
     {
       title: '$vuetify.playground.counter.name',
@@ -62,13 +62,18 @@ const routes: Routes = {
       to: '/playground/poll',
       icon: 'fa-solid fa-poll',
     },
-  ],
+  ],*/
   study: [
     {
       title: '$vuetify.study.courses.name',
       to: '/study/courses',
       icon: 'fa-solid fa-book-open',
     },
+    {
+      title: '$vuetify.study.timetable.name',
+      to: '/study/timetable',
+      icon: 'fa-solid fa-calendar-alt',
+    }
   ],
 };
 

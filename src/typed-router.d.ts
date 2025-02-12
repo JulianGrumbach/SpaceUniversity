@@ -32,5 +32,6 @@ declare module 'vue-router/auto-routes' {
     '/study': RouteRecordInfo<'/study', '/study', Record<never, never>, Record<never, never>>,
     '/study/courses': RouteRecordInfo<'/study/courses', '/study/courses', Record<never, never>, Record<never, never>>,
     '/study/courses.[id]': RouteRecordInfo<'/study/courses.[id]', '/study/courses/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/study/timetable': RouteRecordInfo<'/study/timetable', '/study/timetable', Record<never, never>, Record<never, never>>,
   }
 }

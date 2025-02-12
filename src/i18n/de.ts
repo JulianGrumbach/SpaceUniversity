@@ -108,7 +108,7 @@ export default {
       undefined: 'Nicht spezifiziert',
       map: 'Karte',
       courses: 'Kurse',
-      schedule: 'Stundeplan',
+      timetable: 'Stundeplan',
       bugtracker: 'Bugtracker',
       faq: 'FAQ',
     }
@@ -134,6 +134,11 @@ export default {
           lecture: 'Vorlesung',
           training: 'Übung',
         },
+    },
+    timetable: {
+      name: 'Stundenplan',
+      longName: 'Persönlicher Stundenplan',
+      searchDates: 'Suche nach Terminen...',
     },
   },
   home: {

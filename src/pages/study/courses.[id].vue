@@ -2,7 +2,11 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-btn @click="goBack" color="primary" class="mb-4">
+        <v-btn
+          color="primary"
+          class="mb-4"
+          @click="goBack"
+        >
           Zurück
         </v-btn>
         <v-card

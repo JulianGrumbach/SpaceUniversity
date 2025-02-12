@@ -108,7 +108,7 @@ export default {
       undefined: 'Undefined',
       map: 'Map',
       courses: 'Courses',
-      schedule: 'Schedule',
+      timetable: 'Schedule',
       bugtracker: 'Bugtracker',
       faq: 'FAQ',
     }
@@ -134,6 +134,11 @@ export default {
         lecture: 'Lecture',
         training: 'Training',
       },
+    },
+    timetable: {
+      name: 'Timetable',
+      longName: 'Personal Timetable',
+      searchDates: 'Search for dates...',
     },
   },
   home: {

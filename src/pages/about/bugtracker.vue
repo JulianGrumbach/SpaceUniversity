@@ -137,8 +137,8 @@
                 <option value="courses">
                   {{ t('$vuetify.aboutBugTracker.section.courses') }}
                 </option>
-                <option value="schedule">
-                  {{ t('$vuetify.aboutBugTracker.section.schedule') }}
+                <option value="timetable">
+                  {{ t('$vuetify.aboutBugTracker.section.timetable') }}
                 </option>
                 <option value="bugtracker">
                   {{ t('$vuetify.aboutBugTracker.section.bugtracker') }}
@@ -196,7 +196,9 @@
     >
       <div class="confirmation-content">
         <div class="throbber" />
-        <h2 class="text-h5">{{ t('$vuetify.aboutBugTracker.beingSend') }}</h2>
+        <h2 class="text-h5">
+          {{ t('$vuetify.aboutBugTracker.beingSend') }}
+        </h2>
         <p>{{ t('$vuetify.aboutBugTracker.ticket.number') }}: {{ confirmationTicketNumber }}</p>
         <p>{{ t('$vuetify.aboutBugTracker.ticket.title') }}: {{ confirmationTitle }}</p>
       </div>
@@ -223,22 +225,22 @@
   const exampleBugs = [
       { ticketNumber: '#1556', title: 'FAQ Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.faq', description: 'Die FAQs könnten besser strukturiert sein.', status: '$vuetify.aboutBugTracker.status.inProgress' },
       { ticketNumber: '#1523', title: 'Bugtracker Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.bugtracker', description: 'Der Bugtracker speichert keine Daten.', status: '$vuetify.aboutBugTracker.status.open' },
-      { ticketNumber: '#1490', title: 'Stundenplan Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.schedule', description: 'Der Stundenplan könnte übersichtlicher sein.', status: '$vuetify.aboutBugTracker.status.open' },
+      { ticketNumber: '#1490', title: 'Stundenplan Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.timetable', description: 'Der Stundenplan könnte übersichtlicher sein.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1467', title: 'Kursdetails Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.courses', description: 'Die Kursdetails sind unvollständig.', status: '$vuetify.aboutBugTracker.status.inProgress' },
       { ticketNumber: '#1434', title: 'Kartenansicht Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.map', description: 'Die Kartenansicht könnte schneller laden.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1401', title: 'FAQ Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.faq', description: 'Einige FAQs sind nicht mehr relevant.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1389', title: 'Bugtracker Usability', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.bugtracker', description: 'Der Bugtracker könnte benutzerfreundlicher sein.', status: '$vuetify.aboutBugTracker.status.inProgress' },
-      { ticketNumber: '#1356', title: 'Stundenplan Anzeigeproblem', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.schedule', description: 'Der Stundenplan wird nicht vollständig angezeigt.', status: '$vuetify.aboutBugTracker.status.open' },
+      { ticketNumber: '#1356', title: 'Stundenplan Anzeigeproblem', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.timetable', description: 'Der Stundenplan wird nicht vollständig angezeigt.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1323', title: 'Kursübersicht Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.courses', description: 'Die Kursübersicht könnte mehr Filteroptionen haben.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1290', title: 'Kartenansicht Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.map', description: 'Die Kartenansicht zeigt falsche Daten an.', status: '$vuetify.aboutBugTracker.status.inProgress' },
       { ticketNumber: '#1267', title: 'FAQ Verbesserung', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.faq', description: 'Die FAQs könnten detaillierter sein.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1234', title: 'Bugtracker Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.bugtracker', description: 'Der Bugtracker stürzt häufig ab.', status: '$vuetify.aboutBugTracker.status.open' },
-      { ticketNumber: '#1203', title: 'Stundenplan Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.schedule', description: 'Der Stundenplan könnte farblich besser gestaltet sein.', status: '$vuetify.aboutBugTracker.status.inProgress' },
+      { ticketNumber: '#1203', title: 'Stundenplan Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.timetable', description: 'Der Stundenplan könnte farblich besser gestaltet sein.', status: '$vuetify.aboutBugTracker.status.inProgress' },
       { ticketNumber: '#1189', title: 'Fehler in Kursdetails', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.courses', description: 'Die Kursdetails werden nicht korrekt angezeigt.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1156', title: 'Kartenansicht Verbesserung', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.map', description: 'Die Kartenansicht könnte interaktiver sein.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1123', title: 'FAQ Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.faq', description: 'Einige FAQs sind veraltet.', status: '$vuetify.aboutBugTracker.status.inProgress' },
       { ticketNumber: '#1099', title: 'Bugtracker Feedback', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.bugtracker', description: 'Der Bugtracker ist schwer zu bedienen.', status: '$vuetify.aboutBugTracker.status.open' },
-      { ticketNumber: '#1078', title: 'Stundenplan Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.schedule', description: 'Einige Kurse werden doppelt angezeigt.', status: '$vuetify.aboutBugTracker.status.open' },
+      { ticketNumber: '#1078', title: 'Stundenplan Fehler', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.timetable', description: 'Einige Kurse werden doppelt angezeigt.', status: '$vuetify.aboutBugTracker.status.open' },
       { ticketNumber: '#1045', title: 'Feedback zu Kursen', ticketType: '$vuetify.aboutBugTracker.type.feedback', section: '$vuetify.aboutBugTracker.section.courses', description: 'Die Kursübersicht könnte übersichtlicher sein.', status: '$vuetify.aboutBugTracker.status.inProgress' },
       { ticketNumber: '#1023', title: 'Fehler in der Kartenansicht', ticketType: '$vuetify.aboutBugTracker.type.bug', section: '$vuetify.aboutBugTracker.section.map', description: 'Die Kartenansicht lädt nicht korrekt.', status: '$vuetify.aboutBugTracker.status.open' }
   ];
