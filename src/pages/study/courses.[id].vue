@@ -19,7 +19,7 @@
             color="red"
             absolute
             class="top-0 right-0 me-4"
-            @click="myCourse = !myCourse"
+            @click="anmelden()"
           />
           <v-fab
             v-if="!myCourse"
@@ -27,7 +27,7 @@
             color="primary"
             absolute
             class="top-0 right-0 me-4"
-            @click="myCourse = !myCourse"
+            @click="abmelden()"
           />
           <v-card-text>
             <v-list>
@@ -81,6 +81,8 @@
       </v-col>
     </v-row>
   </v-container>
+  <v-alert v-model="abgemeldet" title="Anmeldung" text="Erfolgreiche Anmeldung am Kurs" type="success" class="bottom-0 right-0 position-absolute" style="margin-bottom: 80px" />
+  <v-alert v-model="angemeldet" title="Abmeldung" text="Erfolgreiche Abmeldung vom Kurs" type="success" class="bottom-0 right-0 position-absolute" style="margin-bottom: 80px"/>
 </template>
 
 <script setup lang="ts">
@@ -91,6 +93,8 @@
   import { useLocale } from 'vuetify';
   const { t } = useLocale();
   const myCourse = ref(false);
+  const abgemeldet = ref(false);
+  const angemeldet = ref(false);
 
   const route = useRoute();
   const router = useRouter();
@@ -111,4 +115,22 @@
   const goBack = () => {
     router.push('/study/courses');
   };
+
+  function anmelden() {
+    console.log('Anmelden');
+    myCourse.value = false;
+    angemeldet.value = true;
+    setTimeout(() => {
+      angemeldet.value = false;
+    }, 3000);
+  }
+
+  function abmelden() {
+    console.log('Abmelden');
+    myCourse.value = true;
+    abgemeldet.value = true;
+    setTimeout(() => {
+      abgemeldet.value = false;
+    }, 3000);
+  }
 </script>
