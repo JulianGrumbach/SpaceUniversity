@@ -5,6 +5,7 @@
       :rail="mini"
       rail-width="62"
       permanent
+      order="2"
     >
       <v-list-item>
         <template
@@ -74,7 +75,7 @@
     </v-navigation-drawer>
 
     <router-view />
-    <FooterBar />
+    <FooterBar order="1"/>
   </v-app>
 </template>
 
