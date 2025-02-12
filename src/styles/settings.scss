@@ -1,0 +1,22 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+@use 'vuetify/settings' with (
+    $date-picker-header-height: 0px, //70px
+    $date-picker-month-btn-height: 18px, //24px Einzelne Tage Button Höhe
+    $date-picker-month-btn-size: 0.85rem, //0.85rem
+    $date-picker-month-column-gap: 4px, //4px
+    $date-picker-month-day-size: 30px, //40px
+    $date-picker-month-font-size: 0.85rem, //0.85rem
+    $date-picker-month-padding: 0 12px 8px, //0 12px 8px
+    $date-picker-months-grid-gap: 0px 24px, //0px 24px
+    $date-picker-months-height: 288px, //288px
+    $date-picker-show-week-width: 256px, //368px
+    $date-picker-width: 256px, //328px
+    $date-picker-years-height: 288px, //288px
+    $date-picker-years-padding-inline: 0px, //32px
+);
