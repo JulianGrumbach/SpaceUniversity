@@ -139,6 +139,11 @@ export default {
       name: 'Timetable',
       longName: 'Personal Timetable',
       searchDates: 'Search for dates...',
+      monday: 'Monday',
+      tuesday: 'Tuesday',
+      wednesday: 'Wednesday',
+      thursday: 'Thursday',
+      friday: 'Friday',
     },
   },
   home: {

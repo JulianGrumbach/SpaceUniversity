@@ -7,8 +7,7 @@
       <v-text-field
         v-model="search"
         append-inner-icon="fa-solid fa-magnifying-glass"
-        label="{{ t('$vuetify.study.timetable.searchDates')}}"
-        single-line
+        :label="t('$vuetify.study.timetable.searchDates')"
         hide-details
       />
     </div>
@@ -16,12 +15,12 @@
     <table>
       <thead>
         <tr>
-          <th />
-          <th>Montag</th>
-          <th>Dienstag</th>
-          <th>Mittwoch</th>
-          <th>Donnerstag</th>
-          <th>Freitag</th>
+          <th class="bg-primary"/>
+          <th class="bg-primary">{{ t('$vuetify.study.timetable.monday') }}</th>
+          <th class="bg-primary">{{ t('$vuetify.study.timetable.tuesday') }}</th>
+          <th class="bg-primary">{{ t('$vuetify.study.timetable.wednesday') }}</th>
+          <th class="bg-primary">{{ t('$vuetify.study.timetable.thursday') }}</th>
+          <th class="bg-primary">{{ t('$vuetify.study.timetable.friday') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -593,7 +592,7 @@
   function deleteAppointment() {
     if (currentSlot.time && currentSlot.day) {
       timetable[currentSlot.time][currentSlot.day].course = '';
-      timetable[currentSlot.time][currentSlot.day].color = '#ffffff';
+      timetable[currentSlot.time][currentSlot.day].color = '';
     }
     closePopup();
   }
@@ -617,7 +616,7 @@ th, td {
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: rgba(var(--v-theme-background), 1); /*#f2f2f2;*/
 }
 
 th:first-child, td:first-child {
@@ -653,7 +652,7 @@ td:hover {
 }
 
 .popup-content {
-  background-color: white;
+  background-color: rgba(var(--v-theme-background), 1);
   padding: 20px;
   border-radius: 5px;
   width: 300px;

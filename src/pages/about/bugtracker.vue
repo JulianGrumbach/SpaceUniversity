@@ -1,208 +1,219 @@
 <template>
   <div class="bugtracker">
-    <div class="left">
-      <h1 class="text-h4">
-        {{ t('$vuetify.aboutBugTracker.welcome') }}
-      </h1>
-      <br>
-      <p>{{ t('$vuetify.aboutBugTracker.description1') }}</p>
-      <p>{{ t('$vuetify.aboutBugTracker.description2') }}</p>
-      <p>{{ t('$vuetify.aboutBugTracker.description3') }}</p>
-      <p>{{ t('$vuetify.aboutBugTracker.description4') }}</p>
-      <p>{{ t('$vuetify.aboutBugTracker.description5') }}</p>
-      <button
-        style="background-color: #090091;"
-        @click="openPopup"
-      >
-        {{ t('$vuetify.aboutBugTracker.newTicket') }}
-      </button>
-    </div>
-    <div class="right">
-      <h2>{{ t('$vuetify.aboutBugTracker.unresolvedTickets') }}</h2>
-      <div class="table-container">
-        <v-container style="padding-bottom: 10px;">
-          <v-row>
-            <v-col
-              cols="12"
-              class="d-flex justify-end"
-            >
-              <v-text-field
-                v-model="search"
-                append-inner-icon="fa-solid fa-magnifying-glass"
-                :label="t('$vuetify.aboutBugTracker.search')"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
-        <table>
-          <thead>
-            <tr>
-              <th>{{ t('$vuetify.aboutBugTracker.ticket.number') }}</th>
-              <th>{{ t('$vuetify.aboutBugTracker.ticket.title') }}</th>
-              <th>{{ t('$vuetify.aboutBugTracker.ticket.variant') }}</th>
-              <th>{{ t('$vuetify.aboutBugTracker.ticket.section') }}</th>
-              <th>{{ t('$vuetify.aboutBugTracker.ticket.description') }}</th>
-              <th>{{ t('$vuetify.aboutBugTracker.ticket.status') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(bug, index) in exampleBugs"
-              :key="index"
-            >
-              <td>{{ bug.ticketNumber }}</td>
-              <td>{{ bug.title }}</td>
-              <td>{{ t(bug.ticketType) }}</td>
-              <td>{{ t(bug.section) }}</td>
-              <td>{{ bug.description }}</td>
-              <td :class="{'status-offen': bug.status === '$vuetify.aboutBugTracker.status.open', 'status-in-bearbeitung': bug.status === '$vuetify.aboutBugTracker.status.inProgress'}">
-                {{ t(bug.status) }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div
-      v-if="showPopup"
-      class="popup"
-    >
-      <div class="popup-content">
-        <span
-          class="close"
-          @click="showPopup = false"
-        >
-          &times;
-        </span>
-        <h1 class="text-h4">
-          {{ t('$vuetify.aboutBugTracker.name') }}
-        </h1>
-        <br>
-        <form @submit.prevent="submitBug">
-          <div>
-            <label for="type">
-              {{ t('$vuetify.aboutBugTracker.ticket.variant') }}:
-              <span style="color: red;">*</span>
-            </label>
-            <div style="position: relative; width: 100%;">
-              <select
-                id="type"
-                v-model="bug.ticketType"
-                required
-                style="width: 100%; border: 1px solid grey; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 30px; padding-left: 10px;"
-              >
-                <option
-                  value=""
-                  selected
-                  disabled
-                  hidden
-                >
-                  {{ t('$vuetify.aboutBugTracker.select') }}
-                </option>
-                <option value="bug">
-                  {{ t('$vuetify.aboutBugTracker.type.bug') }}
-                </option>
-                <option value="feedback">
-                  {{ t('$vuetify.aboutBugTracker.type.feedback') }}
-                </option>
-              </select>
-              <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; border-left: 1px solid grey; padding-left: 5px;">&#9662;</span>
-            </div>
+    <v-container>
+      <v-row>
+        <v-col cols="4">
+          <div class="left1" style="margin-left: -80px">
+            <h1 class="text-h4">
+              {{ t('$vuetify.aboutBugTracker.welcome') }}
+            </h1>
             <br>
-            <label for="section">
-              {{ t('$vuetify.aboutBugTracker.ticket.section') }}:
-              <span style="color: red;">*</span>
-            </label>
-            <div style="position: relative; width: 100%;">
-              <select
-                id="section"
-                v-model="bug.section"
-                required
-                style="width: 100%; border: 1px solid grey; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 30px; padding-left: 10px;"
-              >
-                <option
-                  value=""
-                  selected
-                  disabled
-                  hidden
-                >
-                  {{ t('$vuetify.aboutBugTracker.select') }}
-                </option>
-                <option value="undefined">
-                  {{ t('$vuetify.aboutBugTracker.section.undefined') }}
-                </option>
-                <option value="map">
-                  {{ t('$vuetify.aboutBugTracker.section.map') }}
-                </option>
-                <option value="courses">
-                  {{ t('$vuetify.aboutBugTracker.section.courses') }}
-                </option>
-                <option value="timetable">
-                  {{ t('$vuetify.aboutBugTracker.section.timetable') }}
-                </option>
-                <option value="bugtracker">
-                  {{ t('$vuetify.aboutBugTracker.section.bugtracker') }}
-                </option>
-                <option value="faq">
-                  {{ t('$vuetify.aboutBugTracker.section.faq') }}
-                </option>
-              </select>
-              <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; border-left: 1px solid grey; padding-left: 5px;">&#9662;</span>
-            </div>
-            <br>
-          </div>
-          <div>
-            <label for="title">
-              {{ t('$vuetify.aboutBugTracker.ticket.title') }}:
-              <span style="color: red;">*</span>
-            </label>
-            <input
-              id="title"
-              v-model="bug.title"
-              type="text"
-              required
+            <p>{{ t('$vuetify.aboutBugTracker.description1') }}</p>
+            <p>{{ t('$vuetify.aboutBugTracker.description2') }}</p>
+            <p>{{ t('$vuetify.aboutBugTracker.description3') }}</p>
+            <p>{{ t('$vuetify.aboutBugTracker.description4') }}</p>
+            <p>{{ t('$vuetify.aboutBugTracker.description5') }}</p>
+            <button
+              style="background-color: #090091;"
+              @click="openPopup"
             >
+              {{ t('$vuetify.aboutBugTracker.newTicket') }}
+            </button>
           </div>
-          <div>
-            <label for="description">
-              {{ t('$vuetify.aboutBugTracker.ticket.description') }}:
-              <span style="color: red;">*</span>
-            </label>
-            <textarea
-              id="description"
-              v-model="bug.description"
-              required
-            />
+        </v-col>
+        <v-col cols="8">
+          <div class="right-side">
+            <div class="right1">
+              <h2>{{ t('$vuetify.aboutBugTracker.unresolvedTickets') }}</h2>
+              <div class="table-container">
+                <v-container style="padding-bottom: 10px;">
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      class="d-flex justify-end"
+                    >
+                      <v-text-field
+                        v-model="search"
+                        append-inner-icon="fa-solid fa-magnifying-glass"
+                        :label="t('$vuetify.aboutBugTracker.search')"
+                      />
+                    </v-col>
+                  </v-row>
+                </v-container>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>{{ t('$vuetify.aboutBugTracker.ticket.number') }}</th>
+                      <th>{{ t('$vuetify.aboutBugTracker.ticket.title') }}</th>
+                      <th>{{ t('$vuetify.aboutBugTracker.ticket.variant') }}</th>
+                      <th>{{ t('$vuetify.aboutBugTracker.ticket.section') }}</th>
+                      <th>{{ t('$vuetify.aboutBugTracker.ticket.description') }}</th>
+                      <th>{{ t('$vuetify.aboutBugTracker.ticket.status') }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="(bug, index) in exampleBugs"
+                      :key="index"
+                    >
+                      <td>{{ bug.ticketNumber }}</td>
+                      <td>{{ bug.title }}</td>
+                      <td>{{ t(bug.ticketType) }}</td>
+                      <td>{{ t(bug.section) }}</td>
+                      <td>{{ bug.description }}</td>
+                      <td :class="{'status-offen': bug.status === '$vuetify.aboutBugTracker.status.open', 'status-in-bearbeitung': bug.status === '$vuetify.aboutBugTracker.status.inProgress'}">
+                        {{ t(bug.status) }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              v-if="showPopup"
+              class="popup"
+            >
+              <div class="popup-content">
+                <span
+                  class="close"
+                  @click="showPopup = false"
+                >
+                  &times;
+                </span>
+                <h1 class="text-h4">
+                  {{ t('$vuetify.aboutBugTracker.name') }}
+                </h1>
+                <br>
+                <form @submit.prevent="submitBug">
+                  <div>
+                    <label for="type">
+                      {{ t('$vuetify.aboutBugTracker.ticket.variant') }}:
+                      <span style="color: red;">*</span>
+                    </label>
+                    <div style="position: relative; width: 100%;">
+                      <select
+                        id="type"
+                        v-model="bug.ticketType"
+                        required
+                        style="width: 100%; border: 1px solid grey; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 30px; padding-left: 10px;"
+                      >
+                        <option
+                          value=""
+                          selected
+                          disabled
+                          hidden
+                        >
+                          {{ t('$vuetify.aboutBugTracker.select') }}
+                        </option>
+                        <option value="bug">
+                          {{ t('$vuetify.aboutBugTracker.type.bug') }}
+                        </option>
+                        <option value="feedback">
+                          {{ t('$vuetify.aboutBugTracker.type.feedback') }}
+                        </option>
+                      </select>
+                      <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; border-left: 1px solid grey; padding-left: 5px;">&#9662;</span>
+                    </div>
+                    <br>
+                    <label for="section">
+                      {{ t('$vuetify.aboutBugTracker.ticket.section') }}:
+                      <span style="color: red;">*</span>
+                    </label>
+                    <div style="position: relative; width: 100%;">
+                      <select
+                        id="section"
+                        v-model="bug.section"
+                        required
+                        style="width: 100%; border: 1px solid grey; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 30px; padding-left: 10px;"
+                      >
+                        <option
+                          value=""
+                          selected
+                          disabled
+                          hidden
+                        >
+                          {{ t('$vuetify.aboutBugTracker.select') }}
+                        </option>
+                        <option value="undefined">
+                          {{ t('$vuetify.aboutBugTracker.section.undefined') }}
+                        </option>
+                        <option value="map">
+                          {{ t('$vuetify.aboutBugTracker.section.map') }}
+                        </option>
+                        <option value="courses">
+                          {{ t('$vuetify.aboutBugTracker.section.courses') }}
+                        </option>
+                        <option value="timetable">
+                          {{ t('$vuetify.aboutBugTracker.section.timetable') }}
+                        </option>
+                        <option value="bugtracker">
+                          {{ t('$vuetify.aboutBugTracker.section.bugtracker') }}
+                        </option>
+                        <option value="faq">
+                          {{ t('$vuetify.aboutBugTracker.section.faq') }}
+                        </option>
+                      </select>
+                      <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; border-left: 1px solid grey; padding-left: 5px;">&#9662;</span>
+                    </div>
+                    <br>
+                  </div>
+                  <div>
+                    <label for="title">
+                      {{ t('$vuetify.aboutBugTracker.ticket.title') }}:
+                      <span style="color: red;">*</span>
+                    </label>
+                    <input
+                      id="title"
+                      v-model="bug.title"
+                      type="text"
+                      required
+                    >
+                  </div>
+                  <div>
+                    <label for="description">
+                      {{ t('$vuetify.aboutBugTracker.ticket.description') }}:
+                      <span style="color: red;">*</span>
+                    </label>
+                    <textarea
+                      id="description"
+                      v-model="bug.description"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <p style="color: #bc3e3e;">
+                      {{ t('$vuetify.aboutBugTracker.duplicateInfo') }}
+                    </p>
+                    <label>{{ t('$vuetify.aboutBugTracker.ticket.number') }}:</label>
+                    <p>{{ ticketNumber }}</p>
+                  </div>
+                  <button
+                    type="submit"
+                    style="background-color: #090091; color: white;"
+                  >
+                    {{ t('$vuetify.aboutBugTracker.send') }}
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div
+              v-if="showConfirmation"
+              class="confirmation-popup"
+            >
+              <div class="confirmation-content">
+                <div class="throbber" />
+                <h2 class="text-h5">
+                  {{ t('$vuetify.aboutBugTracker.beingSend') }}
+                </h2>
+                <p>{{ t('$vuetify.aboutBugTracker.ticket.number') }}: {{ confirmationTicketNumber }}</p>
+                <p>{{ t('$vuetify.aboutBugTracker.ticket.title') }}: {{ confirmationTitle }}</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p style="color: #bc3e3e;">
-              {{ t('$vuetify.aboutBugTracker.duplicateInfo') }}
-            </p>
-            <label>{{ t('$vuetify.aboutBugTracker.ticket.number') }}:</label>
-            <p>{{ ticketNumber }}</p>
-          </div>
-          <button
-            type="submit"
-            style="background-color: #090091; color: white;"
-          >
-            {{ t('$vuetify.aboutBugTracker.send') }}
-          </button>
-        </form>
-      </div>
-    </div>
-    <div
-      v-if="showConfirmation"
-      class="confirmation-popup"
-    >
-      <div class="confirmation-content">
-        <div class="throbber" />
-        <h2 class="text-h5">
-          {{ t('$vuetify.aboutBugTracker.beingSend') }}
-        </h2>
-        <p>{{ t('$vuetify.aboutBugTracker.ticket.number') }}: {{ confirmationTicketNumber }}</p>
-        <p>{{ t('$vuetify.aboutBugTracker.ticket.title') }}: {{ confirmationTitle }}</p>
-      </div>
-    </div>
+
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -274,10 +285,10 @@
 }
 
 .left {
-  width: 45%;
+  width: 35%;
   padding: 10px;
   border-radius: 4px;
-  margin-left: -150px; /* Adjust this value as needed */
+  margin-left: -120px; /* Adjust this value as needed */
 }
 
 .right {

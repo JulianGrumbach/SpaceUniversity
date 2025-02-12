@@ -139,6 +139,11 @@ export default {
       name: 'Stundenplan',
       longName: 'Persönlicher Stundenplan',
       searchDates: 'Suche nach Terminen...',
+      monday: 'Montag',
+      tuesday: 'Dienstag',
+      wednesday: 'Mittwoch',
+      thursday: 'Donnerstag',
+      friday: 'Freitag',
     },
   },
   home: {
