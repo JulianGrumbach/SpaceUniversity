@@ -1,7 +1,9 @@
 <template>
   <div class="timetable">
     <div class="header">
-      <h1 class="text-h4">{{ t('$vuetify.study.timetable.longName')}}</h1>
+      <h1 class="text-h4">
+        {{ t('$vuetify.study.timetable.longName') }}
+      </h1>
       <v-text-field
         v-model="search"
         append-inner-icon="fa-solid fa-magnifying-glass"
@@ -582,10 +584,10 @@
   }
 
   function saveColor() {
-          if (currentSlot.time && currentSlot.day) {
-              timetable[currentSlot.time][currentSlot.day].color = selectedColor.value;
-          }
-          closePopup();
+    if (currentSlot.time && currentSlot.day) {
+        timetable[currentSlot.time][currentSlot.day].color = selectedColor.value;
+    }
+    closePopup();
   }
 
   function deleteAppointment() {

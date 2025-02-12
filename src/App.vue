@@ -1,7 +1,5 @@
 <template>
   <v-app>
-    <SystemBar />
-
     <v-navigation-drawer
       v-model="drawer"
       :rail="mini"
@@ -76,6 +74,7 @@
     </v-navigation-drawer>
 
     <router-view />
+    <FooterBar />
   </v-app>
 </template>
 
@@ -83,6 +82,7 @@
   import { ref } from 'vue';
   import { useLocale } from 'vuetify'
   import stores from '@/stores/pouchDB/stores';
+import FooterBar from './components/FooterBar.vue';
 
 
   const groups = ['campus', 'study', 'about']

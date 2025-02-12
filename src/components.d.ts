@@ -11,6 +11,7 @@ declare module 'vue' {
     BreadcrumbBar: typeof import('./components/BreadcrumbBar.vue')['default']
     Course: typeof import('./components/Course.vue')['default']
     EventDates: typeof import('./components/EventDates.vue')['default']
+    FooterBar: typeof import('./components/FooterBar.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     LanguageButton: typeof import('./components/LanguageButton.vue')['default']
     Navigation: typeof import('./components/Navigation.vue')['default']
